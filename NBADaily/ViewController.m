@@ -25,6 +25,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+    
     self.navigationItem.title = @"NBA Highlights";
 
     [self sendRequest:nil];
@@ -32,10 +34,14 @@
     [self.tableView reloadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)appDidBecomeActive:(NSNotification *)notification {
+    NSLog(@"did become active notification");
+    
+    [self sendRequest:nil];
 }
+
+
+
 
 #pragma mark - UITableView Delegate and Datasource methods
 
