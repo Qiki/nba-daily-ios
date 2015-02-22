@@ -24,8 +24,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.navigationItem.title = @"NBA Highlights";
 
-    [self reloadNBAData];
+    [self sendRequest:nil];
+    
     [self.tableView reloadData];
 }
 
@@ -55,12 +58,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 168.0f;
+    return 190.0f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self getVideoRequest:self.dataArray[indexPath.row][@"url"]];
+    [self sendRequest:self.dataArray[indexPath.row][@"url"]];
 }
 
 
@@ -68,37 +71,32 @@
 
 #pragma mark - Send request to get data
 
-- (void)reloadNBAData {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    [manager.requestSerializer setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
-
-    [manager GET:@"http://nba-daily.herokuapp.com" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.dataArray = (NSArray *)responseObject;
-        NSLog(@"JSON: %@", responseObject);
-        [self.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
-}
-
-- (void)getVideoRequest:(NSString *)url {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    [manager.requestSerializer setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
-    
-    [manager GET:[NSString stringWithFormat:@"http://nba-daily.herokuapp.com%@", url] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSDictionary *response = (NSDictionary *)responseObject;
-        [self performSegueWithIdentifier:@"PUSH_VIDEO" sender:@{@"json" : response}];
-        
-        NSLog(@"JSON: %@", responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
-}
-
 - (void)sendRequest:(NSString *)request {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
+    [manager.requestSerializer setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
+    
+    NSString *url = @"";
+    
+    if (request) {
+        url = [NSString stringWithFormat:@"http://nba-daily.herokuapp.com%@", request];
+    } else {
+        url = @"http://nba-daily.herokuapp.com";
+    }
+    
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (request) {
+            NSDictionary *response = (NSDictionary *)responseObject;
+            [self performSegueWithIdentifier:@"PUSH_VIDEO" sender:@{@"json" : response}];
+        } else {
+            self.dataArray = (NSArray *)responseObject;
+            [self.tableView reloadData];
+        }
+
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 
@@ -108,9 +106,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender  {
     if ([[segue identifier] isEqualToString:@"PUSH_VIDEO"]) {
-        UINavigationController *viewController = (UINavigationController *)[segue destinationViewController];
-        
-        NBAVideoViewController *videoViewController = (NBAVideoViewController *)viewController.viewControllers.firstObject;
+         NBAVideoViewController *videoViewController = (NBAVideoViewController *)[segue destinationViewController];
         videoViewController.json = sender[@"json"];
     }
 }

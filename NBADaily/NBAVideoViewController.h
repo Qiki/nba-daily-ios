@@ -13,7 +13,6 @@
 @property (nonatomic, copy) NSDictionary *json;
 
 @property (nonatomic, weak) IBOutlet UIWebView *videoPlayer;
-@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *descriptionLabel;
 
 @end

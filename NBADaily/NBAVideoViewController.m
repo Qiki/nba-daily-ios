@@ -18,12 +18,6 @@
     [super viewDidLoad];
     
     [self updateData:self.json];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 
@@ -36,7 +30,15 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 2;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 1) {
+        return 200.0f;
+    }
+    
+    return 96.0f;
 }
 
 
@@ -45,11 +47,12 @@
 #pragma mark - Update data
 
 - (void)updateData:(NSDictionary *)json {
-    self.titleLabel.text =  json[@"title"] ? : @"";
+    self.navigationItem.title = json[@"title"] ? : @"";
     self.descriptionLabel.text = json[@"description"] ? : @"";
     
-    NSString *htmlString = [NSString stringWithFormat:@"<html><body><video width=\"%ld\" height=\"%ld\" controls poster=%@ src=%@></video></body></html>", (long)self.view.frame.size.width, (long)self.videoPlayer.frame.size.height, json[@"thumbnailUrl"], json[@"video"]];
-
+    NSString *htmlString = [NSString stringWithFormat:@"<html><body><center><video width=\"%ld\" height=\"%ld\" controls poster=%@ src=%@></video></center></body></html>", (long)self.view.frame.size.width - 15, (long)self.videoPlayer.frame.size.height, json[@"thumbnailUrl"], json[@"video"]];
+    
+    self.videoPlayer.scrollView.scrollEnabled = NO;
     [self.videoPlayer loadHTMLString:htmlString baseURL:nil];
 }
 
