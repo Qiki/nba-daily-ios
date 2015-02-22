@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		273DA4B91A9A7C8600652285 /* NBAVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273DA4B81A9A7C8600652285 /* NBAVideoViewController.m */; };
 		27724BDD1A954C8A00C86E39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27724BDC1A954C8A00C86E39 /* main.m */; };
 		27724BE01A954C8A00C86E39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27724BDF1A954C8A00C86E39 /* AppDelegate.m */; };
 		27724BE31A954C8A00C86E39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27724BE21A954C8A00C86E39 /* ViewController.m */; };
@@ -29,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		273DA4B71A9A7C8600652285 /* NBAVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBAVideoViewController.h; sourceTree = "<group>"; };
+		273DA4B81A9A7C8600652285 /* NBAVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBAVideoViewController.m; sourceTree = "<group>"; };
 		27724BD71A954C8A00C86E39 /* NBADaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBADaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27724BDB1A954C8A00C86E39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27724BDC1A954C8A00C86E39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 				27724BDA1A954C8A00C86E39 /* Supporting Files */,
 				27724C121A96CA1A00C86E39 /* BannerCell.h */,
 				27724C131A96CA1A00C86E39 /* BannerCell.m */,
+				273DA4B71A9A7C8600652285 /* NBAVideoViewController.h */,
+				273DA4B81A9A7C8600652285 /* NBAVideoViewController.m */,
 			);
 			path = NBADaily;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 			files = (
 				27724BE31A954C8A00C86E39 /* ViewController.m in Sources */,
 				27724C141A96CA1A00C86E39 /* BannerCell.m in Sources */,
+				273DA4B91A9A7C8600652285 /* NBAVideoViewController.m in Sources */,
 				27724BE01A954C8A00C86E39 /* AppDelegate.m in Sources */,
 				27724BDD1A954C8A00C86E39 /* main.m in Sources */,
 			);

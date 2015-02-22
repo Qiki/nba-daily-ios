@@ -11,6 +11,7 @@
 #import "ViewController.h"
 
 #import "BannerCell.h"
+#import "NBAVideoViewController.h"
 
 @interface ViewController ()
 
@@ -57,18 +58,61 @@
     return 168.0f;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self getVideoRequest:self.dataArray[indexPath.row][@"url"]];
+}
+
+
+
+
+#pragma mark - Send request to get data
+
 - (void)reloadNBAData {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     [manager.requestSerializer setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
-    
-    [manager GET:@"http://localhost:3000" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+    [manager GET:@"http://nba-daily.herokuapp.com" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dataArray = (NSArray *)responseObject;
         NSLog(@"JSON: %@", responseObject);
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
+}
+
+- (void)getVideoRequest:(NSString *)url {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    [manager.requestSerializer setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
+    
+    [manager GET:[NSString stringWithFormat:@"http://nba-daily.herokuapp.com%@", url] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *response = (NSDictionary *)responseObject;
+        [self performSegueWithIdentifier:@"PUSH_VIDEO" sender:@{@"json" : response}];
+        
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+- (void)sendRequest:(NSString *)request {
+    
+}
+
+
+
+
+#pragma mark - Perform segue method
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender  {
+    if ([[segue identifier] isEqualToString:@"PUSH_VIDEO"]) {
+        UINavigationController *viewController = (UINavigationController *)[segue destinationViewController];
+        
+        NBAVideoViewController *videoViewController = (NBAVideoViewController *)viewController.viewControllers.firstObject;
+        videoViewController.json = sender[@"json"];
+    }
 }
 
 @end
