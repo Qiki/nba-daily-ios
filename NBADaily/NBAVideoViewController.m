@@ -8,7 +8,11 @@
 
 #import "NBAVideoViewController.h"
 
+#import <AFNetworking/AFHTTPRequestOperationManager.h>
+
 @interface NBAVideoViewController ()
+
+@property (nonatomic, strong) UIView *loadingView;
 
 @end
 
@@ -17,7 +21,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self updateData:self.json];
+    self.loadingView = [[UIView alloc] initWithFrame:self.view.frame];
+    self.loadingView.backgroundColor = [UIColor whiteColor];
+    self.loadingView.userInteractionEnabled = YES;
+    [self.view addSubview:self.loadingView];
+    
+    [self loadRequest];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.loadingView.alpha = 0.f;
+    } completion:^(BOOL finished) {
+        [self.loadingView removeFromSuperview];
+    }];
 }
 
 
@@ -54,6 +71,25 @@
     
     self.videoPlayer.scrollView.scrollEnabled = NO;
     [self.videoPlayer loadHTMLString:htmlString baseURL:nil];
+}
+
+- (void)loadRequest {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [manager.requestSerializer setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
+
+    NSString *url = [NSString stringWithFormat:@"http://nba-daily.herokuapp.com%@", self.url];
+
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        [self updateData:(NSDictionary *)responseObject];
+        
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 @end
