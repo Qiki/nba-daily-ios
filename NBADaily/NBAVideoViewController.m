@@ -29,14 +29,6 @@
     [self loadRequest];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [UIView animateWithDuration:0.3 animations:^{
-        self.loadingView.alpha = 0.f;
-    } completion:^(BOOL finished) {
-        [self.loadingView removeFromSuperview];
-    }];
-}
-
 
 
 
@@ -85,6 +77,12 @@
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
         [self updateData:(NSDictionary *)responseObject];
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            self.loadingView.alpha = 0.f;
+        } completion:^(BOOL finished) {
+            [self.loadingView removeFromSuperview];
+        }];
         
         NSLog(@"JSON: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
