@@ -69,7 +69,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self sendRequest:self.dataArray[indexPath.row][@"url"]];
+    [self performSegueWithIdentifier:@"PUSH_VIDEO" sender:@{@"url" : self.dataArray[indexPath.row][@"url"]}];
 }
 
 
@@ -84,23 +84,13 @@
     
     [manager.requestSerializer setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
 
-    NSString *url = @"";
-    
-    if (request) {
-        url = [NSString stringWithFormat:@"http://nba-daily.herokuapp.com%@", request];
-    } else {
-        url = @"http://nba-daily.herokuapp.com";
-    }
-    
+    NSString *url = @"http://nba-daily.herokuapp.com";
+   
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (request) {
-            NSDictionary *response = (NSDictionary *)responseObject;
-            [self performSegueWithIdentifier:@"PUSH_VIDEO" sender:@{@"json" : response}];
-        } else {
-            self.dataArray = (NSArray *)responseObject;
-            [self.tableView reloadData];
-        }
-
+        
+        self.dataArray = (NSArray *)responseObject;
+        [self.tableView reloadData];
+        
         NSLog(@"JSON: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
@@ -115,7 +105,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender  {
     if ([[segue identifier] isEqualToString:@"PUSH_VIDEO"]) {
          NBAVideoViewController *videoViewController = (NBAVideoViewController *)[segue destinationViewController];
-        videoViewController.json = sender[@"json"];
+        videoViewController.url = sender[@"url"];
     }
 }
 
