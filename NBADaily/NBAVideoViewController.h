@@ -11,6 +11,7 @@
 @interface NBAVideoViewController : UITableViewController <UIWebViewDelegate>
 
 @property (nonatomic, copy) NSDictionary *json;
+@property (nonatomic, copy) NSString *url;
 
 @property (nonatomic, weak) IBOutlet UIWebView *videoPlayer;
 @property (nonatomic, weak) IBOutlet UILabel *descriptionLabel;
