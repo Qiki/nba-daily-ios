@@ -30,14 +30,14 @@
     self.navigationItem.title = @"NBA Highlights";
 
     [self sendRequest:nil];
-    
-    [self.tableView reloadData];
 }
 
 - (void)appDidBecomeActive:(NSNotification *)notification {
     NSLog(@"did become active notification");
     
     [self sendRequest:nil];
+    
+    [self.tableView reloadData];
 }
 
 
@@ -80,8 +80,10 @@
 - (void)sendRequest:(NSString *)request {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    [manager.requestSerializer setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
+    [manager.requestSerializer setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
+
     NSString *url = @"";
     
     if (request) {
