@@ -47,7 +47,6 @@
 
 
 - (UIView *)getSlideMenuView {
- 
     if (self.slideMenuViewController == nil) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         self.slideMenuViewController = [storyboard instantiateViewControllerWithIdentifier:@"SlideMenuViewController"];
