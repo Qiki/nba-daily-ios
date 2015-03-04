@@ -16,6 +16,8 @@
 		27724BEB1A954C8A00C86E39 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27724BE91A954C8A00C86E39 /* LaunchScreen.xib */; };
 		27724BF71A954C8A00C86E39 /* NBADailyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 27724BF61A954C8A00C86E39 /* NBADailyTests.m */; };
 		27724C141A96CA1A00C86E39 /* BannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27724C131A96CA1A00C86E39 /* BannerCell.m */; };
+		27B432671AA3FFF400C11CFF /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B432661AA3FFF400C11CFF /* MainViewController.m */; };
+		27B432D41AA6D24600C11CFF /* SlideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B432D31AA6D24600C11CFF /* SlideMenuViewController.m */; };
 		E61207C26BEEDCF965E207C8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 464C6148C5C32A9A951A5C99 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,10 @@
 		27724BF61A954C8A00C86E39 /* NBADailyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NBADailyTests.m; sourceTree = "<group>"; };
 		27724C121A96CA1A00C86E39 /* BannerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerCell.h; sourceTree = "<group>"; };
 		27724C131A96CA1A00C86E39 /* BannerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerCell.m; sourceTree = "<group>"; };
+		27B432651AA3FFF400C11CFF /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		27B432661AA3FFF400C11CFF /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		27B432D21AA6D24600C11CFF /* SlideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideMenuViewController.h; sourceTree = "<group>"; };
+		27B432D31AA6D24600C11CFF /* SlideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideMenuViewController.m; sourceTree = "<group>"; };
 		464C6148C5C32A9A951A5C99 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		556BF6F76C189851CD335314 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DC3406F2C572494C3BCAD3BB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +120,10 @@
 				27724C131A96CA1A00C86E39 /* BannerCell.m */,
 				273DA4B71A9A7C8600652285 /* NBAVideoViewController.h */,
 				273DA4B81A9A7C8600652285 /* NBAVideoViewController.m */,
+				27B432651AA3FFF400C11CFF /* MainViewController.h */,
+				27B432661AA3FFF400C11CFF /* MainViewController.m */,
+				27B432D21AA6D24600C11CFF /* SlideMenuViewController.h */,
+				27B432D31AA6D24600C11CFF /* SlideMenuViewController.m */,
 			);
 			path = NBADaily;
 			sourceTree = "<group>";
@@ -289,8 +299,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				27724BE31A954C8A00C86E39 /* ViewController.m in Sources */,
+				27B432671AA3FFF400C11CFF /* MainViewController.m in Sources */,
 				27724C141A96CA1A00C86E39 /* BannerCell.m in Sources */,
 				273DA4B91A9A7C8600652285 /* NBAVideoViewController.m in Sources */,
+				27B432D41AA6D24600C11CFF /* SlideMenuViewController.m in Sources */,
 				27724BE01A954C8A00C86E39 /* AppDelegate.m in Sources */,
 				27724BDD1A954C8A00C86E39 /* main.m in Sources */,
 			);
