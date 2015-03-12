@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) ViewController *centerViewController;
 @property (nonatomic, strong) SlideMenuViewController *slideMenuViewController;
+@property (nonatomic, assign) BOOL openSlideMenu;
 
 
 @end
@@ -27,9 +28,15 @@
     [self setupView];
     // Do any additional setup after loading the view.
 }
+
 - (IBAction)showSlideMenu {
-    [self showSlideMenuViewController];
+    self.openSlideMenu = !self.openSlideMenu;
     
+    if (self.openSlideMenu) {
+        [self showSlideMenuViewController];
+    } else {
+        [self resetCenterView];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,6 +77,14 @@
         self.centerViewController.view.frame = CGRectMake(self.view.frame.size.width - 60, 0, self.view.frame.size.width, self.view.frame.size.height);
     } completion:^(BOOL finished) {
                          
+    }];
+}
+
+- (void)resetCenterView {
+    [UIView animateWithDuration:.25 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        self.centerViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    } completion:^(BOOL finished) {
+        
     }];
 }
 
