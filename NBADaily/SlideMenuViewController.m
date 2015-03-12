@@ -41,4 +41,27 @@
     return 50.0f;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *type = @"";
+    
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+                type = @"";
+                
+                break;
+            case 1:
+                type = @"/daily-zap";
+                
+                break;
+            default:
+                
+                type = @"/top-10";
+                break;
+        }
+    }
+    
+    [self.delegate resetCenterViewControllerWithType:type];
+}
+
 @end

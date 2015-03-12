@@ -12,8 +12,9 @@
 
 #import "BannerCell.h"
 #import "NBAVideoViewController.h"
+#import "SlideMenuViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <SlideMenuViewControllerDelegate>
 
 @property (nonatomic, copy) NSArray *dataArray;
 
@@ -29,18 +30,20 @@
     
     self.navigationItem.title = @"NBA Highlights";
 
-    [self sendRequest:nil];
+    [self sendRequest:@""];
 }
 
 - (void)appDidBecomeActive:(NSNotification *)notification {
     NSLog(@"did become active notification");
     
-    [self sendRequest:nil];
+    [self sendRequest:@""];
     
     [self.tableView reloadData];
 }
 
-
+- (void)reloadDataWithType:(NSString *)type {
+    [self sendRequest:type];
+}
 
 
 #pragma mark - UITableView Delegate and Datasource methods
@@ -83,8 +86,14 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
     [manager.requestSerializer setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
-
-    NSString *url = @"http://nba-daily.herokuapp.com";
+    
+    NSString *url = @"";
+    
+    if ([request isEqualToString:@""]) {
+        url = @"http://nba-daily.herokuapp.com";
+    } else {
+        url = [NSString stringWithFormat:@"http://nba-daily.herokuapp.com%@", request];
+    }
    
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         

@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SlideMenuViewControllerDelegate
+
+- (void)resetCenterViewControllerWithType:(NSString *)type;
+
+@end
+
 @interface SlideMenuViewController : UITableViewController
+
+@property (nonatomic, assign) id<SlideMenuViewControllerDelegate> delegate;
 
 @end
