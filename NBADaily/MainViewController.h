@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MainViewControllerDelegate
+
+- (void)reloadDataWithType:(NSString *)type;
+
+@end
+
 @interface MainViewController : UIViewController
+
+@property (nonatomic, assign) id<MainViewControllerDelegate> delegate;
 
 @end
