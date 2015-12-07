@@ -45,7 +45,6 @@
     [self sendRequest:type];
 }
 
-
 #pragma mark - UITableView Delegate and Datasource methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -75,9 +74,6 @@
     [self performSegueWithIdentifier:@"PUSH_VIDEO" sender:@{@"url" : self.dataArray[indexPath.row][@"url"]}];
 }
 
-
-
-
 #pragma mark - Send request to get data
 
 - (void)sendRequest:(NSString *)request {
@@ -106,8 +102,13 @@
     }];
 }
 
-
-
+- (IBAction)indexChanged:(UISegmentedControl *)sender {
+    if (sender.selectedSegmentIndex == 0) {
+        [self sendRequest:@""];
+    } else if (sender.selectedSegmentIndex == 1) {
+        [self sendRequest:@"/top-10"];
+    }
+}
 
 #pragma mark - Perform segue method
 

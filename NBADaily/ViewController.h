@@ -13,6 +13,7 @@
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MainViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *videoSegementControl;
 
 @end
 

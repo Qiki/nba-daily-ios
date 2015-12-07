@@ -197,6 +197,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="L5a-hH-0f3" kind="relationship" relationship="viewControllers" id="F3E-hX-pkf"/>
+                        <segue destination="xxo-kR-meE" kind="relationship" relationship="viewControllers" id="ify-wh-2vJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LPL-53-4EI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -230,6 +231,9 @@
                                                 <segment title="Highlights"/>
                                                 <segment title="Top 10"/>
                                             </segments>
+                                            <connections>
+                                                <action selector="indexChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="KT9-AC-Fi2"/>
+                                            </connections>
                                         </segmentedControl>
                                     </subviews>
                                     <animations/>
@@ -297,12 +301,75 @@
                     <navigationItem key="navigationItem" id="4Rm-jG-4kQ"/>
                     <connections>
                         <outlet property="tableView" destination="3gl-Tb-Ap0" id="jzM-Jg-CHl"/>
+                        <outlet property="videoSegementControl" destination="I5U-sa-cSY" id="OCH-ql-uWQ"/>
                         <segue destination="Zvg-MX-GKh" kind="show" identifier="PUSH_VIDEO" id="Dhf-c8-e2I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="838" y="274"/>
+        </scene>
+        <!--Standings View Controller-->
+        <scene sceneID="Mxf-Dy-sST">
+            <objects>
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="guL-eY-BrW" customClass="StandingsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="63" sectionHeaderHeight="18" sectionFooterHeight="18" id="CgN-Zs-ygC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StandingsCell" rowHeight="45" id="wog-Kq-uIV" customClass="StandingsCell">
+                                <rect key="frame" x="0.0" y="114" width="600" height="45"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wog-Kq-uIV" id="awc-nX-cny">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Spurs " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yr2-cD-JHb">
+                                            <rect key="frame" x="8" y="0.0" width="65" height="44"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12   6" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEn-Zz-bcg">
+                                            <rect key="frame" x="550" y="0.0" width="42" height="44"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.37167051174496646" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="yr2-cD-JHb" firstAttribute="leading" secondItem="awc-nX-cny" secondAttribute="leading" constant="8" id="075-lA-5Mg"/>
+                                        <constraint firstItem="gEn-Zz-bcg" firstAttribute="top" secondItem="awc-nX-cny" secondAttribute="top" id="CrY-Tz-Cwi"/>
+                                        <constraint firstAttribute="bottom" secondItem="yr2-cD-JHb" secondAttribute="bottom" id="IGQ-Tz-tUd"/>
+                                        <constraint firstItem="yr2-cD-JHb" firstAttribute="top" secondItem="awc-nX-cny" secondAttribute="top" id="ISy-9H-0ad"/>
+                                        <constraint firstAttribute="trailing" secondItem="gEn-Zz-bcg" secondAttribute="trailing" constant="8" id="KK2-R1-WsH"/>
+                                        <constraint firstAttribute="bottom" secondItem="gEn-Zz-bcg" secondAttribute="bottom" id="Kcs-pK-yVe"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="teamName" destination="yr2-cD-JHb" id="g4f-7H-d1P"/>
+                                    <outlet property="teamStandings" destination="gEn-Zz-bcg" id="LqI-pW-bwd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="guL-eY-BrW" id="fbA-fB-z4C"/>
+                            <outlet property="delegate" destination="guL-eY-BrW" id="AUA-qq-rSq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="aD0-uI-zdL"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vj8-Xd-2da" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="879" y="984"/>
         </scene>
         <!--Video View Controller-->
         <scene sceneID="Lx4-pW-1NK">
@@ -421,8 +488,29 @@
             </objects>
             <point key="canvasLocation" x="26" y="274"/>
         </scene>
+        <!--Standings-->
+        <scene sceneID="BS0-rz-hz4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xxo-kR-meE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Standings" image="ic_assignment" id="fqR-Lg-i6d"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pss-pB-w8N">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="guL-eY-BrW" kind="relationship" relationship="rootViewController" id="mdP-Uo-FVv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fRZ-Eb-mUy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="67" y="984"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="ic_assignment" width="24" height="24"/>
         <image name="ic_home" width="24" height="24"/>
     </resources>
 </document>
