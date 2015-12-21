@@ -63,8 +63,9 @@
     NSString static *bannerIdentifier = @"BannerCell";
     
     BannerCell *cell = (BannerCell *)[tableView dequeueReusableCellWithIdentifier:bannerIdentifier];
+    NSArray *dataArray = self.sectionContentArray[indexPath.section];
     
-    //[cell updateWithInfo:self.dataArray[indexPath.row]];
+    [cell updateWithInfo:dataArray[indexPath.row]];
     
     return cell;
 }
@@ -123,9 +124,13 @@
 - (IBAction)indexChanged:(UISegmentedControl *)sender {
     if (sender.selectedSegmentIndex == 0) {
         [self sendRequest:@""];
-    } else if (sender.selectedSegmentIndex == 1) {
-        [self sendRequest:@"/top-10"];
     }
+    
+    // Waiting for backend update
+    
+//    else if (sender.selectedSegmentIndex == 1) {
+//        [self sendRequest:@"/top-10"];
+//    }
 }
 
 #pragma mark - Perform segue method
