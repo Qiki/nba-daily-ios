@@ -17,6 +17,8 @@
 @interface ViewController () <SlideMenuViewControllerDelegate>
 
 @property (nonatomic, copy) NSArray *dataArray;
+@property (nonatomic, strong) NSMutableArray *sectionTitleArray;
+@property (nonatomic, strong) NSMutableArray *sectionContentArray;
 
 @end
 
@@ -48,11 +50,13 @@
 #pragma mark - UITableView Delegate and Datasource methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataArray.count;
+    NSArray *contentArray = self.sectionContentArray[section];
+    
+    return contentArray.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return self.sectionTitleArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -60,13 +64,17 @@
     
     BannerCell *cell = (BannerCell *)[tableView dequeueReusableCellWithIdentifier:bannerIdentifier];
     
-    [cell updateWithInfo:self.dataArray[indexPath.row]];
+    //[cell updateWithInfo:self.dataArray[indexPath.row]];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return (336 * self.view.frame.size.width) / 600;;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return self.sectionTitleArray[section];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -85,6 +93,9 @@
     
     NSString *url = @"";
     
+    self.sectionTitleArray = [[NSMutableArray alloc] init];
+    self.sectionContentArray = [[NSMutableArray alloc] init];
+    
     if ([request isEqualToString:@""]) {
         url = @"http://nba-daily.herokuapp.com";
     } else {
@@ -92,8 +103,15 @@
     }
    
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *responseDictionary = (NSDictionary *)responseObject;
         
-        self.dataArray = (NSArray *)responseObject;
+        if (responseDictionary != nil) {
+            for (id key in responseDictionary) {
+                [self.sectionTitleArray addObject:key];
+                [self.sectionContentArray addObject:responseDictionary[key]];
+            }
+        }
+        
         [self.tableView reloadData];
         
         NSLog(@"JSON: %@", responseObject);
