@@ -15,6 +15,7 @@
 #import "SlideMenuViewController.h"
 
 #import <MediaPlayer/MediaPlayer.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface ViewController () <SlideMenuViewControllerDelegate>
 
@@ -30,11 +31,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadRequest) name:UIApplicationDidBecomeActiveNotification object:nil];
     
     self.navigationItem.title = @"NBA Highlights";
 
-    [self sendRequest:@"" isVideo:NO];
+    //[self sendRequest:@"" isVideo:NO];
 }
 
 - (void)appDidBecomeActive:(NSNotification *)notification {
@@ -47,6 +48,16 @@
 
 - (void)reloadDataWithType:(NSString *)type {
     [self sendRequest:type isVideo:NO];
+}
+
+- (void)reloadRequest {
+    [self sendRequest:@"" isVideo:NO];
+    
+    [self.tableView reloadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self reloadRequest];
 }
 
 #pragma mark - UITableView Delegate and Datasource methods
@@ -106,8 +117,12 @@
         url = [NSString stringWithFormat:@"http://nba-daily.herokuapp.com%@", request];
     }
     
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *responseDictionary = (NSDictionary *)responseObject;
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
         if (responseDictionary != nil) {
             if (isVideo) {
