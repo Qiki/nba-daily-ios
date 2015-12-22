@@ -16,6 +16,8 @@
 
 #import <MediaPlayer/MediaPlayer.h>
 #import <MBProgressHUD/MBProgressHUD.h>
+ #import <AVFoundation/AVFoundation.h>
+
 
 @interface ViewController () <SlideMenuViewControllerDelegate>
 
@@ -36,6 +38,8 @@
     self.navigationItem.title = @"NBA Highlights";
 
     //[self sendRequest:@"" isVideo:NO];
+    
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
 }
 
 - (void)appDidBecomeActive:(NSNotification *)notification {
@@ -128,10 +132,15 @@
             if (isVideo) {
                 [self playVideo:responseDictionary[@"video"]];
             } else {
-                for (id key in responseDictionary) {
-                    [self.sectionTitleArray addObject:key];
-                    [self.sectionContentArray addObject:responseDictionary[key]];
+                self.sectionTitleArray = [[responseDictionary allKeys] mutableCopy];\
+                NSMutableArray *titleArray = [[NSMutableArray alloc] init];
+                
+                for (NSInteger i = self.sectionTitleArray.count - 1; i > 0; i--) {
+                    [self.sectionContentArray addObject:responseDictionary[self.sectionTitleArray[i]]];
+                    [titleArray addObject:self.sectionTitleArray[i]];
                 }
+                
+                self.sectionTitleArray = titleArray;
             }
         }
         
