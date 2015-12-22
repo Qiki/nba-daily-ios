@@ -14,6 +14,11 @@
 #import "NBAVideoViewController.h"
 #import "SlideMenuViewController.h"
 
+#import <MediaPlayer/MediaPlayer.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+ #import <AVFoundation/AVFoundation.h>
+
+
 @interface ViewController () <SlideMenuViewControllerDelegate>
 
 @property (nonatomic, copy) NSArray *dataArray;
@@ -28,23 +33,35 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadRequest) name:UIApplicationDidBecomeActiveNotification object:nil];
     
     self.navigationItem.title = @"NBA Highlights";
 
-    [self sendRequest:@""];
+    //[self sendRequest:@"" isVideo:NO];
+    
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
 }
 
 - (void)appDidBecomeActive:(NSNotification *)notification {
     NSLog(@"did become active notification");
     
-    [self sendRequest:@""];
+    [self sendRequest:@"" isVideo:NO];
     
     [self.tableView reloadData];
 }
 
 - (void)reloadDataWithType:(NSString *)type {
-    [self sendRequest:type];
+    [self sendRequest:type isVideo:NO];
+}
+
+- (void)reloadRequest {
+    [self sendRequest:@"" isVideo:NO];
+    
+    [self.tableView reloadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self reloadRequest];
 }
 
 #pragma mark - UITableView Delegate and Datasource methods
@@ -79,13 +96,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *dataArray = self.sectionContentArray[indexPath.section];
     
-    [self performSegueWithIdentifier:@"PUSH_VIDEO" sender:@{@"url" : self.dataArray[indexPath.row][@"url"]}];
+    [self sendRequest:dataArray[indexPath.row][@"url"] isVideo:YES];
 }
 
 #pragma mark - Send request to get data
 
-- (void)sendRequest:(NSString *)request {
+- (void)sendRequest:(NSString *)request isVideo:(BOOL)isVideo {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -102,14 +120,27 @@
     } else {
         url = [NSString stringWithFormat:@"http://nba-daily.herokuapp.com%@", request];
     }
-   
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *responseDictionary = (NSDictionary *)responseObject;
         
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         if (responseDictionary != nil) {
-            for (id key in responseDictionary) {
-                [self.sectionTitleArray addObject:key];
-                [self.sectionContentArray addObject:responseDictionary[key]];
+            if (isVideo) {
+                [self playVideo:responseDictionary[@"video"]];
+            } else {
+                self.sectionTitleArray = [[responseDictionary allKeys] mutableCopy];\
+                NSMutableArray *titleArray = [[NSMutableArray alloc] init];
+                
+                for (NSInteger i = self.sectionTitleArray.count - 1; i > 0; i--) {
+                    [self.sectionContentArray addObject:responseDictionary[self.sectionTitleArray[i]]];
+                    [titleArray addObject:self.sectionTitleArray[i]];
+                }
+                
+                self.sectionTitleArray = titleArray;
             }
         }
         
@@ -123,7 +154,7 @@
 
 - (IBAction)indexChanged:(UISegmentedControl *)sender {
     if (sender.selectedSegmentIndex == 0) {
-        [self sendRequest:@""];
+        [self sendRequest:@"" isVideo:NO];
     }
     
     // Waiting for backend update
@@ -133,13 +164,9 @@
 //    }
 }
 
-#pragma mark - Perform segue method
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender  {
-    if ([[segue identifier] isEqualToString:@"PUSH_VIDEO"]) {
-         NBAVideoViewController *videoViewController = (NBAVideoViewController *)[segue destinationViewController];
-        videoViewController.url = sender[@"url"];
-    }
+- (void)playVideo:(NSString *)videoURL {
+    MPMoviePlayerViewController *mpvc = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL URLWithString:videoURL]];
+    [self.navigationController presentMoviePlayerViewControllerAnimated:mpvc];
 }
 
 @end

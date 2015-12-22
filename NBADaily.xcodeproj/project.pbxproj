@@ -34,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2719B7351C28CF15006F1B18 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2719B7371C28CF9D006F1B18 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		273DA4B71A9A7C8600652285 /* NBAVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBAVideoViewController.h; sourceTree = "<group>"; };
 		273DA4B81A9A7C8600652285 /* NBAVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBAVideoViewController.m; sourceTree = "<group>"; };
 		27724BD71A954C8A00C86E39 /* NBADaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBADaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +88,8 @@
 		0730AC1F49AF3168A47A9857 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2719B7371C28CF9D006F1B18 /* MediaPlayer.framework */,
+				2719B7351C28CF15006F1B18 /* AVFoundation.framework */,
 				464C6148C5C32A9A951A5C99 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -233,6 +237,7 @@
 				TargetAttributes = {
 					27724BD61A954C8A00C86E39 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 827FFZZGA3;
 					};
 					27724BEF1A954C8A00C86E39 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -465,9 +470,12 @@
 			baseConfigurationReference = 556BF6F76C189851CD335314 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NBADaily/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -476,9 +484,12 @@
 			baseConfigurationReference = DC3406F2C572494C3BCAD3BB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NBADaily/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

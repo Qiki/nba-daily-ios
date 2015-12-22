@@ -10,6 +10,7 @@
 
 @protocol SlideMenuViewControllerDelegate
 
+@optional
 - (void)resetCenterViewControllerWithType:(NSString *)type;
 
 @end
