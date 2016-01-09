@@ -45,9 +45,6 @@ static NSString * kReceiverAppID;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadRequest) name:UIApplicationDidBecomeActiveNotification object:nil];
-    
     self.navigationItem.title = @"NBA Highlights";
     
      kReceiverAppID=kGCKMediaDefaultReceiverApplicationID;
@@ -110,22 +107,12 @@ static NSString * kReceiverAppID;
     }
 }
 
-- (void)appDidBecomeActive:(NSNotification *)notification {
-    NSLog(@"did become active notification");
-    
-    [self sendRequest:@"" isVideo:NO];
-    
-    [self.tableView reloadData];
-}
-
 - (void)reloadDataWithType:(NSString *)type {
     [self sendRequest:type isVideo:NO];
 }
 
 - (void)reloadRequest {
     [self sendRequest:@"" isVideo:NO];
-    
-    [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -135,9 +122,13 @@ static NSString * kReceiverAppID;
 #pragma mark - UITableView Delegate and Datasource methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSArray *contentArray = self.sectionContentArray[section];
-    
-    return contentArray.count;
+    if (self.sectionContentArray.count > 0) {
+        NSArray *contentArray = self.sectionContentArray[section];
+        
+        return contentArray.count;
+    } else {
+        return 0;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -148,9 +139,12 @@ static NSString * kReceiverAppID;
     NSString static *bannerIdentifier = @"BannerCell";
     
     BannerCell *cell = (BannerCell *)[tableView dequeueReusableCellWithIdentifier:bannerIdentifier];
-    NSArray *dataArray = self.sectionContentArray[indexPath.section];
     
-    [cell updateWithInfo:dataArray[indexPath.row]];
+    if (self.sectionContentArray.count > 0) {
+        NSArray *dataArray = self.sectionContentArray[indexPath.section];
+        
+        [cell updateWithInfo:dataArray[indexPath.row]];
+    }
     
     return cell;
 }
@@ -160,7 +154,11 @@ static NSString * kReceiverAppID;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return self.sectionTitleArray[section];
+    if (self.sectionTitleArray.count > 0) {
+        return self.sectionTitleArray[section];
+    } else {
+        return @"";
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -231,10 +229,10 @@ static NSString * kReceiverAppID;
                 [self reloadRequest];
             
             } else {
-                self.sectionTitleArray = [[responseDictionary allKeys] mutableCopy];\
+                self.sectionTitleArray = [[responseDictionary allKeys] mutableCopy];
                 NSMutableArray *titleArray = [[NSMutableArray alloc] init];
                 
-                for (NSInteger i = self.sectionTitleArray.count - 1; i > 0; i--) {
+                for (NSInteger i = self.sectionTitleArray.count - 1; i >= 0; i--) {
                     [self.sectionContentArray addObject:responseDictionary[self.sectionTitleArray[i]]];
                     [titleArray addObject:self.sectionTitleArray[i]];
                 }
