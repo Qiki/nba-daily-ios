@@ -29,6 +29,13 @@ platform :ios do
   desc "Submit a new Beta Build to Hockeyapp"
   desc "This will also make sure the profile is up to date"
   lane :beta do
+    	ensure_git_branch(branch: 'master')
+    	git_pull
+      increment_build_number
+      git_commit(path: ["./"],
+        message: "Version Bump")
+      push_to_git_remote
+
       gym(
       configuration: "Release",
       scheme: "NBADaily",
@@ -49,10 +56,10 @@ platform :ios do
 
   after_all do |lane|
     # This block is called, only if the executed lane was successful
-
     # slack(
     #   message: "Successfully deployed new App Update."
     # )
+    reset_git_repo force: true
   end
 
   error do |lane, exception|
