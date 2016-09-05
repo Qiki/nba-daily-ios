@@ -34,13 +34,7 @@ platform :ios do
       git_commit(path: ["./"],
         message: "Version Bump")
 
-            push_to_git_remote(
-      remote: 'origin',         
-      remote_branch: 'master', 
-      force: true,              
-      tags: false              
-    )
-
+            
       gym(
         silent: false,
         clean: true 
