@@ -8,6 +8,7 @@
 
 scheme "NBADaily"
 export_method "ad-hoc"
+export_team_id "NH4DQKWWK4"
 
 # sdk "iphoneos9.0"
 
