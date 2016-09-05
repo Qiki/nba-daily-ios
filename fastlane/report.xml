@@ -3,52 +3,52 @@
   <testsuite name="fastlane.lanes">
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000686">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000614">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000347">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000309">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: cocoapods" time="3.499917">
+      <testcase classname="fastlane.lanes" name="2: cocoapods" time="5.651549">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: ensure_git_branch" time="0.008268">
+      <testcase classname="fastlane.lanes" name="3: ensure_git_branch" time="0.009869">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: increment_build_number" time="0.995289">
+      <testcase classname="fastlane.lanes" name="4: increment_build_number" time="1.042037">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: git_commit" time="0.026502">
+      <testcase classname="fastlane.lanes" name="5: git_commit" time="0.034599">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: gym" time="29.099882">
+      <testcase classname="fastlane.lanes" name="6: gym" time="30.430774">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="7: git_branch" time="0.019688">
+      <testcase classname="fastlane.lanes" name="7: git_branch" time="0.021278">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="8: hockey" time="9.312202">
+      <testcase classname="fastlane.lanes" name="8: hockey" time="8.918587">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="9: reset_git_repo" time="0.100865">
+      <testcase classname="fastlane.lanes" name="9: reset_git_repo" time="0.091536">
         
       </testcase>
     
