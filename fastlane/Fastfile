@@ -35,8 +35,8 @@ platform :ios do
         message: "Version Bump")
 
       gym(
-      configuration: "Release",
       scheme: "NBADaily",
+      configuration: "Release",
       silent: true,
       clean: true,
       export_method: "ad-hoc"  
