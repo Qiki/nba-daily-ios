@@ -35,7 +35,7 @@ platform :ios do
         message: "Version Bump")
 
       gym(
-      silent: true,
+      silent: false,
       clean: true 
       )
     hockey(
