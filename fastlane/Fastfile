@@ -33,7 +33,6 @@ platform :ios do
       increment_build_number
       git_commit(path: ["./"],
         message: "Version Bump")
-      push_to_git_remote
 
       gym(
       configuration: "Release",
