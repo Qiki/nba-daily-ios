@@ -35,11 +35,8 @@ platform :ios do
         message: "Version Bump")
 
       gym(
-      scheme: "NBADaily",
-      configuration: "Release",
       silent: true,
-      clean: true,
-      export_method: "ad-hoc"  
+      clean: true 
       )
     hockey(
       api_token: "2bfe4ba193384e49bcc9a4215481585a",

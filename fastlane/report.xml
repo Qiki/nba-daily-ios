@@ -3,42 +3,52 @@
   <testsuite name="fastlane.lanes">
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000573">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000496">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000424">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000453">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: cocoapods" time="4.313359">
+      <testcase classname="fastlane.lanes" name="2: cocoapods" time="4.207697">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: ensure_git_branch" time="0.010704">
+      <testcase classname="fastlane.lanes" name="3: ensure_git_branch" time="0.00764">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: increment_build_number" time="2.028022">
+      <testcase classname="fastlane.lanes" name="4: increment_build_number" time="1.038506">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: git_commit" time="0.063984">
+      <testcase classname="fastlane.lanes" name="5: git_commit" time="0.070339">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: push_to_git_remote" time="1.611958">
+      <testcase classname="fastlane.lanes" name="6: gym" time="32.539152">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="7: gym" time="10.178762">
+      <testcase classname="fastlane.lanes" name="7: git_branch" time="0.019667">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="8: hockey" time="10.091602">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="9: reset_git_repo" time="0.103606">
         
       </testcase>
     
