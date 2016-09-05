@@ -34,17 +34,25 @@ platform :ios do
       git_commit(path: ["./"],
         message: "Version Bump")
 
-      gym(
-      silent: false,
-      clean: true 
-      )
-    hockey(
-      api_token: "2bfe4ba193384e49bcc9a4215481585a",
-      public_identifier: "b359a554c37c498ca460a50c836fe624",
-      notes: "Changelog",
-      notify: '0',
-      notes:git_branch + ' (Uploaded via fastlane).'
+            push_to_git_remote(
+      remote: 'origin',         
+      remote_branch: 'master', 
+      force: true,              
+      tags: false              
     )
+
+      gym(
+        silent: false,
+        clean: true 
+      )
+
+      hockey(
+        api_token: "2bfe4ba193384e49bcc9a4215481585a",
+        public_identifier: "b359a554c37c498ca460a50c836fe624",
+        notes: "Changelog",
+        notify: '0',
+        notes:git_branch + ' (Uploaded via fastlane).'
+      )
   end
 
   # You can define as many lanes as you want
