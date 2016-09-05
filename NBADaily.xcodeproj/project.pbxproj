@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		016A7D725AC5E15411D6F229 /* libPods-NBADaily.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC4824F2A60EDB397D6845A /* libPods-NBADaily.a */; };
 		273DA4B91A9A7C8600652285 /* NBAVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273DA4B81A9A7C8600652285 /* NBAVideoViewController.m */; };
 		27724BDD1A954C8A00C86E39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27724BDC1A954C8A00C86E39 /* main.m */; };
 		27724BE01A954C8A00C86E39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27724BDF1A954C8A00C86E39 /* AppDelegate.m */; };
@@ -18,7 +19,6 @@
 		27724C141A96CA1A00C86E39 /* BannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27724C131A96CA1A00C86E39 /* BannerCell.m */; };
 		27B432671AA3FFF400C11CFF /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B432661AA3FFF400C11CFF /* MainViewController.m */; };
 		27B432D41AA6D24600C11CFF /* SlideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B432D31AA6D24600C11CFF /* SlideMenuViewController.m */; };
-		C81E327659339A210CCCEDAC /* libPods-NBADaily.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 914A8C6BDED75012D6F8BF40 /* libPods-NBADaily.a */; };
 		FD6B368A1C14E8AC009329CC /* StandingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6B36891C14E8AC009329CC /* StandingsViewController.m */; };
 		FD6B368D1C14E8FD009329CC /* StandingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6B368C1C14E8FD009329CC /* StandingsCell.m */; };
 /* End PBXBuildFile section */
@@ -34,7 +34,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		13787E50CB1862319D84A6D5 /* Pods-NBADaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBADaily.release.xcconfig"; path = "Pods/Target Support Files/Pods-NBADaily/Pods-NBADaily.release.xcconfig"; sourceTree = "<group>"; };
 		2719B7351C28CF15006F1B18 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2719B7371C28CF9D006F1B18 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		273DA4B71A9A7C8600652285 /* NBAVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBAVideoViewController.h; sourceTree = "<group>"; };
@@ -58,8 +57,9 @@
 		27B432661AA3FFF400C11CFF /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		27B432D21AA6D24600C11CFF /* SlideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideMenuViewController.h; sourceTree = "<group>"; };
 		27B432D31AA6D24600C11CFF /* SlideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideMenuViewController.m; sourceTree = "<group>"; };
-		5014C31EBF19B77741B59C8B /* Pods-NBADaily.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBADaily.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NBADaily/Pods-NBADaily.debug.xcconfig"; sourceTree = "<group>"; };
-		914A8C6BDED75012D6F8BF40 /* libPods-NBADaily.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NBADaily.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		39FF532DC53346A811EC0880 /* Pods-NBADaily.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBADaily.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NBADaily/Pods-NBADaily.debug.xcconfig"; sourceTree = "<group>"; };
+		7EC4824F2A60EDB397D6845A /* libPods-NBADaily.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NBADaily.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9127E9A6E1C87BAEEB822B26 /* Pods-NBADaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBADaily.release.xcconfig"; path = "Pods/Target Support Files/Pods-NBADaily/Pods-NBADaily.release.xcconfig"; sourceTree = "<group>"; };
 		FD6B36881C14E8AC009329CC /* StandingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StandingsViewController.h; path = "Standings View/StandingsViewController.h"; sourceTree = "<group>"; };
 		FD6B36891C14E8AC009329CC /* StandingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StandingsViewController.m; path = "Standings View/StandingsViewController.m"; sourceTree = "<group>"; };
 		FD6B368B1C14E8FD009329CC /* StandingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StandingsCell.h; path = "Standings View/StandingsCell.h"; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C81E327659339A210CCCEDAC /* libPods-NBADaily.a in Frameworks */,
+				016A7D725AC5E15411D6F229 /* libPods-NBADaily.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +90,7 @@
 			children = (
 				2719B7371C28CF9D006F1B18 /* MediaPlayer.framework */,
 				2719B7351C28CF15006F1B18 /* AVFoundation.framework */,
-				914A8C6BDED75012D6F8BF40 /* libPods-NBADaily.a */,
+				7EC4824F2A60EDB397D6845A /* libPods-NBADaily.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -102,7 +102,7 @@
 				27724BF31A954C8A00C86E39 /* NBADailyTests */,
 				27724BD81A954C8A00C86E39 /* Products */,
 				0730AC1F49AF3168A47A9857 /* Frameworks */,
-				C7AA2F4342A6045A557BC24A /* Pods */,
+				B41109B0699506D0A9AFCCD7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,11 +165,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C7AA2F4342A6045A557BC24A /* Pods */ = {
+		B41109B0699506D0A9AFCCD7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5014C31EBF19B77741B59C8B /* Pods-NBADaily.debug.xcconfig */,
-				13787E50CB1862319D84A6D5 /* Pods-NBADaily.release.xcconfig */,
+				39FF532DC53346A811EC0880 /* Pods-NBADaily.debug.xcconfig */,
+				9127E9A6E1C87BAEEB822B26 /* Pods-NBADaily.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -192,12 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27724BFA1A954C8A00C86E39 /* Build configuration list for PBXNativeTarget "NBADaily" */;
 			buildPhases = (
-				EA55B5DEB92FF6FE6023D1E4 /* [CP] Check Pods Manifest.lock */,
+				47E548F1B39FA408E3BE46BB /* [CP] Check Pods Manifest.lock */,
 				27724BD31A954C8A00C86E39 /* Sources */,
 				27724BD41A954C8A00C86E39 /* Frameworks */,
 				27724BD51A954C8A00C86E39 /* Resources */,
-				BB83942F1EA7030BB76515B1 /* [CP] Embed Pods Frameworks */,
-				0CD956A437106A5D49A21CBC /* [CP] Copy Pods Resources */,
+				4FCCE5CE548A6D5D75CA3058 /* [CP] Embed Pods Frameworks */,
+				7FB42B673EEB301525FDD78F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,22 +285,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0CD956A437106A5D49A21CBC /* [CP] Copy Pods Resources */ = {
+		47E548F1B39FA408E3BE46BB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NBADaily/Pods-NBADaily-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		BB83942F1EA7030BB76515B1 /* [CP] Embed Pods Frameworks */ = {
+		4FCCE5CE548A6D5D75CA3058 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -315,19 +315,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NBADaily/Pods-NBADaily-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EA55B5DEB92FF6FE6023D1E4 /* [CP] Check Pods Manifest.lock */ = {
+		7FB42B673EEB301525FDD78F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NBADaily/Pods-NBADaily-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -467,7 +467,7 @@
 		};
 		27724BFB1A954C8A00C86E39 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5014C31EBF19B77741B59C8B /* Pods-NBADaily.debug.xcconfig */;
+			baseConfigurationReference = 39FF532DC53346A811EC0880 /* Pods-NBADaily.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -484,7 +484,7 @@
 		};
 		27724BFC1A954C8A00C86E39 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13787E50CB1862319D84A6D5 /* Pods-NBADaily.release.xcconfig */;
+			baseConfigurationReference = 9127E9A6E1C87BAEEB822B26 /* Pods-NBADaily.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

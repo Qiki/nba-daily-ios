@@ -30,7 +30,6 @@ platform :ios do
   desc "This will also make sure the profile is up to date"
   lane :beta do
     	ensure_git_branch(branch: 'master')
-    	git_pull
       increment_build_number
       git_commit(path: ["./"],
         message: "Version Bump")

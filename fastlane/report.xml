@@ -3,34 +3,29 @@
   <testsuite name="fastlane.lanes">
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000532">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000629">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000417">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000268">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: cocoapods" time="3.17731">
+      <testcase classname="fastlane.lanes" name="2: cocoapods" time="6.143146">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: ensure_git_branch" time="0.005422">
+      <testcase classname="fastlane.lanes" name="3: ensure_git_branch" time="0.013109">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: git_pull" time="0.782159">
+      <testcase classname="fastlane.lanes" name="4: git_pull" time="0.001163">
         
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="5: increment_build_number" time="0.469299">
-        
-          <failure message="/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/lib/fastlane/actions/actions_helper.rb:33:in `execute_action'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/lib/fastlane/runner.rb:175:in `block in execute_action'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/lib/fastlane/runner.rb:174:in `chdir'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/lib/fastlane/runner.rb:174:in `execute_action'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/lib/fastlane/runner.rb:100:in `trigger_action_by_name'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/lib/fastlane/fast_file.rb:140:in `method_missing'&#10;Fastfile:34:in `block (2 levels) in parsing_binding'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/lib/fastlane/lane.rb:33:in `call'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/lib/fastlane/lane.rb:33:in `call'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/lib/fastlane/runner.rb:49:in `block in execute'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/lib/fastlane/runner.rb:45:in `chdir'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/lib/fastlane/runner.rb:45:in `execute'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/lib/fastlane/lane_manager.rb:46:in `cruise_lane'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/lib/fastlane/command_line_handler.rb:30:in `handle'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/lib/fastlane/commands_generator.rb:49:in `block (2 levels) in run'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/commander-4.4.0/lib/commander/command.rb:178:in `call'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/commander-4.4.0/lib/commander/command.rb:178:in `call'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/commander-4.4.0/lib/commander/command.rb:153:in `run'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/commander-4.4.0/lib/commander/runner.rb:444:in `run_active_command'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane_core-0.50.3/lib/fastlane_core/ui/fastlane_runner.rb:36:in `run!'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/commander-4.4.0/lib/commander/delegates.rb:15:in `run!'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/lib/fastlane/commands_generator.rb:246:in `run'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/lib/fastlane/commands_generator.rb:20:in `start'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/lib/fastlane/cli_tools_distributor.rb:58:in `take_off'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/gems/fastlane-1.102.0/bin/fastlane:5:in `&lt;top (required)&gt;'&#10;/Users/kiki/.rvm/rubies/ruby-2.2.1/bin/fastlane:23:in `load'&#10;/Users/kiki/.rvm/rubies/ruby-2.2.1/bin/fastlane:23:in `&lt;main&gt;'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/bin/ruby_executable_hooks:15:in `eval'&#10;/Users/kiki/.rvm/gems/ruby-2.2.1@global/bin/ruby_executable_hooks:15:in `&lt;main&gt;'&#10;&#10;Exit status of command 'cd /Users/kiki/Documents/NBA/iOS/NBADaily &amp;&amp; agvtool next-version -all &amp;&amp; cd -' was 6 instead of 0.&#10;There does not seem to be a CURRENT_PROJECT_VERSION key set for this project.  Add this key to your target's expert build settings.&#10;&#10;" />
+          <failure message="/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/lib/fastlane/actions/actions_helper.rb:33:in `execute_action'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/lib/fastlane/runner.rb:175:in `block in execute_action'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/lib/fastlane/runner.rb:174:in `chdir'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/lib/fastlane/runner.rb:174:in `execute_action'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/lib/fastlane/runner.rb:100:in `trigger_action_by_name'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/lib/fastlane/fast_file.rb:140:in `method_missing'&#10;Fastfile:33:in `block (2 levels) in parsing_binding'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/lib/fastlane/lane.rb:33:in `call'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/lib/fastlane/lane.rb:33:in `call'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/lib/fastlane/runner.rb:49:in `block in execute'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/lib/fastlane/runner.rb:45:in `chdir'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/lib/fastlane/runner.rb:45:in `execute'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/lib/fastlane/lane_manager.rb:46:in `cruise_lane'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/lib/fastlane/command_line_handler.rb:30:in `handle'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/lib/fastlane/commands_generator.rb:49:in `block (2 levels) in run'&#10;/Library/Ruby/Gems/2.0.0/gems/commander-4.4.0/lib/commander/command.rb:178:in `call'&#10;/Library/Ruby/Gems/2.0.0/gems/commander-4.4.0/lib/commander/command.rb:178:in `call'&#10;/Library/Ruby/Gems/2.0.0/gems/commander-4.4.0/lib/commander/command.rb:153:in `run'&#10;/Library/Ruby/Gems/2.0.0/gems/commander-4.4.0/lib/commander/runner.rb:444:in `run_active_command'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane_core-0.50.3/lib/fastlane_core/ui/fastlane_runner.rb:36:in `run!'&#10;/Library/Ruby/Gems/2.0.0/gems/commander-4.4.0/lib/commander/delegates.rb:15:in `run!'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/lib/fastlane/commands_generator.rb:246:in `run'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/lib/fastlane/commands_generator.rb:20:in `start'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/lib/fastlane/cli_tools_distributor.rb:58:in `take_off'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.102.0/bin/fastlane:5:in `&lt;top (required)&gt;'&#10;/usr/bin/fastlane:23:in `load'&#10;/usr/bin/fastlane:23:in `&lt;main&gt;'&#10;&#10;Could not find option 'branch' in the list of available options: only_tags" />
         
       </testcase>
     
